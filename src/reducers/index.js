@@ -1,7 +1,10 @@
 import { combineReducers } from 'redux';
+import StoriesReducer from './reducer_stories';
+import LastWeekReducer from './reducer_lastWeek';
 
 const rootReducer = combineReducers({
-  state: (state = {}) => state
+  stories: StoriesReducer,
+  allLastWeek: LastWeekReducer
 });
 
 export default rootReducer;
