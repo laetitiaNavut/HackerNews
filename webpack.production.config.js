@@ -24,14 +24,14 @@ const config = {
     './src/index.js'
   ],
   output: {
-    path: (__dirname, '/'),
-    publicPath: '/',
-    filename: 'bundle.js'
+    filename: 'bundle.js',
+    path: resolve(__dirname, 'dist'),
+    publicPath: '',
   },
 
   plugins: [
     new HtmlWebpackPlugin({
-      template: `${__dirname}/app/index.html`,
+      template: `${__dirname}/index.html`,
       filename: 'index.html',
       inject: 'body',
     }),
@@ -53,15 +53,19 @@ const config = {
     }),
     new webpack.DefinePlugin({ 'process.env': { NODE_ENV: JSON.stringify('production') } }),
     new ExtractTextPlugin({ filename: 'style.css', disable: false, allChunks: true }),
-    new CopyWebpackPlugin([{ from: './vendors', to: 'vendors' }]),
+    new CopyWebpackPlugin([{ from: './vendors', to: './' }]),
   ],
 
   module: {
     loaders: [
       {
-        test: /\.js?$/,
+        test: /\.jsx?$/,    
         exclude: /node_modules/,
         loader: 'babel-loader',
+        query:
+        {
+          presets:['es2015', 'react', 'stage-2'],
+        }
       },
       {
         test: /\.scss$/,

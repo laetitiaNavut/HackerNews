@@ -3,10 +3,6 @@ import axios from 'axios';
 export const FETCH_STORIES = 'FETCH_STORIES';
 export const FETCH_STORIES_LAST_WEEK = 'FETCH_STORIES_LAST_WEEK';
 
-// let time = new Date();
-// const timestamp = Math.floor(time / 1000);
-// console.log(timestamp);
-
 const lastWeek = new Date(new Date().getTime() - (168 * 60 * 60 * 1000));
 const lastWeekTimestamp = Math.floor(lastWeek / 1000);
 
@@ -16,7 +12,6 @@ const ROOT_URL_2 = `http://hn.algolia.com/api/v1/search_by_date?tags=story&numer
 
 export function fetchStories() {
 	const request = axios.get(ROOT_URL_1);
-
 	return {
 		type: FETCH_STORIES,
 		payload: request

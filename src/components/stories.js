@@ -29,29 +29,28 @@ class Stories extends Component {
 		});
 		this.props.fetchStoriesLastWeek().then(response => {
 			this.setState({
-			  lastWeek: response.payload.data.hits
+			  stories: response.payload.data.hits
 			})
 		});
 	}
 
 
 	handleAction(value) {
-		console.log(value);
 
 		if(value === 'top10out600'){
-			this.setState({
-			  toShow600: this.getMostFrequentWord600(this.state.stories)
-			});
+			this.getMostFrequentWord600(this.state.stories);
 		}else if(value === 'top10lastWeek'){
+			this.getMostFrequentWordLastWeek(this.state.stories);
+		}else{
 			this.setState({
-			  toShowLastweek: this.getMostFrequentWordLastWeek(this.state.lastWeek)
-			});
+			  mostFrequents: []
+			})
 		}
 	}
 
 	getMostFrequentWord600(args){
 
-		 let tagArray = _.pluck(args,'title'); //create an array of tag values from the object array
+		 let tagArray = _.pluck(args,'title');
 		 let joinedArray = tagArray.join().split(' ');
 
 		 var o = _(joinedArray).reduce(function(o, s) {
@@ -73,7 +72,7 @@ class Stories extends Component {
 
 	getMostFrequentWordLastWeek(args){
 
-		 let tagArray = _.pluck(args,'title'); //create an array of tag values from the object array
+		 let tagArray = _.pluck(args,'title');
 		 let joinedArray = tagArray.join().split(' ');
 
 		 var o = _(joinedArray).reduce(function(o, s) {
@@ -94,7 +93,6 @@ class Stories extends Component {
 	}
 
 	render() {
-		console.log(this.state.mostFrequents);
 		return (
 			<section className="row">
       			<div className="col-full">
