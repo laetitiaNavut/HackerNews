@@ -1,17 +1,15 @@
 {
-  "name": "hacker-news-app",
+  "name": "redux-simple-starter",
   "version": "1.0.0",
-  "description": "Hacker News App - fetch most current words in stories titles",
+  "description": "Simple starter package for Redux with React and Babel support",
   "main": "index.js",
-  "repository": "",
+  "repository": "git@github.com:StephenGrider/ReduxSimpleStarter.git",
   "scripts": {
     "start": "node ./node_modules/webpack-dev-server/bin/webpack-dev-server.js",
-    "clean": "rimraf dist",
-    "production": "cross-env npm run clean && webpack --config webpack.production.config.js --progress --profile --colors",
     "test": "mocha --compilers js:babel-core/register --require ./test/test_helper.js --recursive ./test",
     "test:watch": "npm run test -- --watch"
   },
-  "author": "Laetitia Zammit",
+  "author": "",
   "license": "ISC",
   "devDependencies": {
     "babel-core": "^6.2.1",
@@ -24,25 +22,16 @@
     "jsdom": "^8.1.0",
     "mocha": "^2.4.5",
     "react-addons-test-utils": "^0.14.7",
-    "webpack": "^2.2.0",
-    "rimraf": "^2.5.4",
-    "html-webpack-plugin": "^2.28.0",
-    "copy-webpack-plugin": "^4.0.0",
-    "extract-text-webpack-plugin": "^2.0.0-beta.5",
+    "webpack": "^1.12.9",
     "webpack-dev-server": "^1.14.0"
   },
   "dependencies": {
-    "@blueprintjs/core": "^1.14.0",
-    "axios": "^0.16.0",
     "babel-preset-stage-1": "^6.1.18",
-    "cross-env": "^4.0.0",
     "lodash": "^3.10.1",
-    "moment": "^2.18.1",
-    "react": "^0.14.8",
-    "react-dom": "^0.14.8",
+    "react": "^0.14.3",
+    "react-dom": "^0.14.3",
     "react-redux": "^4.0.0",
-    "react-router": "^2.0.0-rc5",
-    "redux": "^3.0.4",
-    "redux-promise": "^0.5.3"
+    "react-router": "^2.0.1",
+    "redux": "^3.0.4"
   }
 }
